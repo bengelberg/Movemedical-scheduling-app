@@ -28,7 +28,7 @@ export const Appointments = () => {
                     date: data.date,
                     time: data.time,
                     location: data.location };
-                }
+                }          
                 return appointment;
               })
             );
@@ -43,14 +43,7 @@ export const Appointments = () => {
             setIsEditing(false);
             document.getElementById('location-menu').selectedIndex = 0;
             } else {
-                
-                    // setDateHandler();
-                    setList(current => [...current, data]);
-                
-                // else {
-                //     // throw Error ("All fields must be complete");
-                //     alert('All fields must be entered')
-                // }
+                setList(current => [...current, data]);
                 document.getElementById('location-menu').selectedIndex = 0;
                 setData({
                     id: '',
@@ -60,9 +53,10 @@ export const Appointments = () => {
                     location: '',
                 });
             }
-    }
+    };
     console.log(list)
     console.log(data)
+    
     const setDataHandler = (e) => { 
         setData(prevData => ({ ...prevData, [e.target.name]: e.target.value, id: new Date().getTime().toString()}))
     };
@@ -74,6 +68,7 @@ export const Appointments = () => {
             }       
         ));
       };
+      
     const editItem = (id) => {
         const specificAppointment = list.find((appointment) => appointment.id === id);
         setIsEditing(true);
@@ -85,6 +80,13 @@ export const Appointments = () => {
             time: specificAppointment.time,
             location: specificAppointment.location,
         });
+        switch (specificAppointment.location) {
+            case 'San Diego': return document.getElementById('location-menu').selectedIndex = 1;
+            case 'Portland': return document.getElementById('location-menu').selectedIndex = 2;
+            case 'Seattle': return document.getElementById('location-menu').selectedIndex = 3;
+            case 'London': return document.getElementById('location-menu').selectedIndex = 4;
+            case 'Orlando': return document.getElementById('location-menu').selectedIndex = 5;
+        }
     };
 
     return (
