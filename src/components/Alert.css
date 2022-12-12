@@ -1,0 +1,21 @@
+.alert {
+    padding: .6em;
+    height: 1rem;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    width: 300px;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    letter-spacing: .1rem;
+    text-transform: capitalize;
+  }
+
+  .alert-danger {
+    color: #741d25;
+    background: #fff5f6;
+  }
+  .alert-success {
+    color: #156d2a;
+    background: #eefbf1;
+  }

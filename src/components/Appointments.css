@@ -2,7 +2,6 @@
     background-color: rgb(255, 255, 255);
     border-radius: 8px;
     box-shadow: 0 0 4px 4px  #d5d5d5;
-    /* min-height: 100vh; */
     min-width: 1000px;
     max-width: 1024px;
     display: grid;
@@ -32,14 +31,13 @@ input:focus{
     padding: .45em;
 }
 .clear-btn{
-    margin: 2em;
+    margin: 1.5em;
     border: none;
     font-family: 'Barlow', sans-serif;
-    font-size: .8em;
+    font-size: .7em;
     font-weight: 400;
     background: none;
-    color: rgb(250, 112, 112);
-    margin-left: 430px;
+    color: rgb(201, 79, 79);
     margin-bottom: 1em;
     cursor: pointer;
 }
@@ -81,3 +79,11 @@ input:focus{
     box-shadow: 0 0 2px 2px  var(--clr-primary-6);
     cursor: pointer;
 } */
+
+.footer-container{
+    min-width: 1000px;
+    max-width: 1024px;
+    display: grid;
+    place-items: center;   
+    width: 60%;
+}

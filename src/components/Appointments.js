@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {AppointmentList} from './AppointmentList';
 import './Appointments.css';
+import Alert from './Alert';
 
 const getLocalStorage = () => {
     let list = localStorage.getItem('list');
@@ -9,7 +10,7 @@ const getLocalStorage = () => {
     } else {
       return [];
     }
-  };
+};
 
 export const Appointments = () => {
     const [list, setList] = useState(getLocalStorage());
@@ -22,12 +23,13 @@ export const Appointments = () => {
     });
     const [isEditing, setIsEditing] = useState(false);
     const [editID, setEditID] = useState(null);
-    const [alert, setAlert] = useState({ show: false, message: '', type: '' });
+    const [alert, setAlert] = useState({ display: false, message: '', type: '' });
 
     const handleSubmit = (e) => {
         e.preventDefault()
         if (!data.description || !data.date || !data.time || !data.location){
-            //display alert
+            console.log(alert)
+            displayAlert(true, 'All fields must be entered', 'danger');
         } else if (isEditing) {
             setList(
               list.map((appointment) => {
@@ -51,21 +53,26 @@ export const Appointments = () => {
             setEditID(null);
             setIsEditing(false);
             document.getElementById('location-menu').selectedIndex = 0;
-            } else {
-                setList(current => [...current, data]);
-                document.getElementById('location-menu').selectedIndex = 0;
-                setData({
-                    id: '',
-                    description: '',
-                    date: '',
-                    time: '',
-                    location: '',
-                });
-            }
+            displayAlert(true, 'Appointment Updated!', 'success');
+        } else {
+            setList(current => [...current, data]);
+            document.getElementById('location-menu').selectedIndex = 0;
+            setData({
+                id: '',
+                description: '',
+                date: '',
+                time: '',
+                location: '',
+            });
+            displayAlert(true, 'Appointment Added!', 'success');
+        }
     };
-    console.log(list)
-    console.log(data)
-    
+    // console.log(list)
+    // console.log(data)
+    const displayAlert = (display=false, message='', type='') => {
+        setAlert({display, message, type});
+    }
+
     const setDataHandler = (e) => { 
         setData(prevData => ({ ...prevData, [e.target.name]: e.target.value, id: new Date().getTime().toString()}))
     };
@@ -76,8 +83,12 @@ export const Appointments = () => {
             return appointment.id !== id
             }       
         ));
+        displayAlert(true, 'Appointment Removed', 'danger');
       };
-
+    const clearList = () => {
+        setList([]);
+        displayAlert(true, 'List Cleared', 'danger');
+    }
     const editItem = (id) => {
         const specificAppointment = list.find((appointment) => appointment.id === id);
         setIsEditing(true);
@@ -139,20 +150,13 @@ export const Appointments = () => {
                     <button type="submit" className={isEditing ? "update-btn" : "create-btn"} id="create-appointment-btn"> {isEditing ? 'UPDATE' : 'CREATE'} </button>
                 </div>
             </form>
-        <div >
-            <div>
+        <div className='footer-container'>
+            
             <AppointmentList appointments={list} removeItem={removeItem} editItem={editItem}/>
-            <button type="button" className='clear-btn' onClick={()=>setList([])}>Clear Appointments</button>
-            </div>
-
+            {alert.display && <Alert {...alert} hideAlert={displayAlert}/>}
+            <button type="button" className='clear-btn' onClick={clearList}>Clear Appointments</button>
+            
         </div>
         </section>
     );
 }
-    // const locations = [
-    //     {value: '', text: 'Select Location'},
-    //     {value: 'Los Angeles', text: 'Los Angeles'},
-    //     {value: 'New York', text: 'New York'},
-    //     {value: 'Paris', text: 'Paris'},
-    //     {value: 'Venice', text: 'Venice'},
-    // ];
