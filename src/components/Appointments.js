@@ -2,8 +2,17 @@ import React, { useState, useEffect } from 'react';
 import {AppointmentList} from './AppointmentList';
 import './Appointments.css';
 
+const getLocalStorage = () => {
+    let list = localStorage.getItem('list');
+    if (list) {
+      return (list = JSON.parse(localStorage.getItem('list')));
+    } else {
+      return [];
+    }
+  };
+
 export const Appointments = () => {
-    const [list, setList] = useState([]);
+    const [list, setList] = useState(getLocalStorage());
     const [data, setData] = useState({
         id: '',
         description: '',
@@ -68,7 +77,7 @@ export const Appointments = () => {
             }       
         ));
       };
-      
+
     const editItem = (id) => {
         const specificAppointment = list.find((appointment) => appointment.id === id);
         setIsEditing(true);
@@ -88,6 +97,10 @@ export const Appointments = () => {
             case 'Orlando': return document.getElementById('location-menu').selectedIndex = 5;
         }
     };
+
+    useEffect(() => {
+        localStorage.setItem('list', JSON.stringify(list));
+      }, [list]);
 
     return (
         <section className='appointments-container'>
