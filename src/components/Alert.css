@@ -6,17 +6,18 @@
     align-items: center;
     text-align: center;
     width: 300px;
-    font-size: 1rem;
+    font-size: .9rem;
     border-radius: 0.25rem;
     letter-spacing: .07rem;
     text-transform: capitalize;
+
   }
 
   .alert-danger {
-    color: #eec7cb;
-    background: #a1676e;
+    color: #dcb0b5;
+    background: #51393c;
   }
   .alert-success {
     color: rgb(241, 251, 238);
-    background: var(--clr-primary-8);
+    background: rgb(90, 138, 90);
   }

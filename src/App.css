@@ -14,7 +14,7 @@
 }
 
 .header{
-  background: linear-gradient(to right, #121112, #000000);
+  background: linear-gradient(to right, #181618, #090909);
   display: grid;
   grid-template-columns: 8em 1fr;
   align-items: center;

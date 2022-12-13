@@ -11,6 +11,19 @@
     font-size: 1.2em;
     background: linear-gradient(to right, #312d32, #242226);
 }
+.appointment-form a{
+    color: var(--clr-primary-5);
+    font-size: .7em;
+}
+#description-input{
+    width: 219px;
+}
+#date-input{
+    width: 80px;
+}
+#time-input{
+    width: 80px;
+}
 
 #title{
     color: var(--clr-primary-5);
@@ -27,6 +40,10 @@
     border-style: none;
     color: var(--clr-primary-5)
 }
+input:hover{
+    background: rgb(70, 65, 71);
+    border-style: none;
+}
 
 input:focus{
     background: rgb(70, 65, 71);
@@ -42,8 +59,10 @@ input:focus{
     color: var(--clr-primary-5);
     border-style: none;
 }
+
 .clear-appointments-btn{
-    margin: 1.5em;
+    /* margin: 1.5em; */
+    margin-top: 50px;
     border: none;
     font-family: 'Barlow', sans-serif;
     font-size: .7em;
@@ -54,6 +73,7 @@ input:focus{
     cursor: pointer;
     transition: var(--transition)
 }
+
 .clear-appointments-btn:hover{
     color: rgb(255, 191, 170); 
 }
@@ -107,8 +127,3 @@ input:focus{
 #create-appointment-btn{
     margin-right: 22px;
 }
-
-/* select {
-    appearance: none;
-    outline: 0;
-} */

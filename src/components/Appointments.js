@@ -12,7 +12,7 @@ const getLocalStorage = () => {
     }
 };
 
-// Main Appointment Container 
+// Main Appointments Container 
 export const Appointments = () => {
     const [list, setList] = useState(getLocalStorage());
     const [data, setData] = useState({
@@ -28,10 +28,20 @@ export const Appointments = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (!data.description || !data.date || !data.time || !data.location){
-            console.log(alert)
+        if (!data.description || !data.date || !data.time || 
+            document.getElementById('location-menu').selectedIndex === 0){
             displayAlert(true, 'All fields must be entered', 'danger');
-        } else if (isEditing) {
+        } 
+        if (checkDateFormat(data.date) === false) {
+            displayAlert(true, `Date must be formatted as MM/DD/YYYY`, 'danger')
+            return;
+        }
+        if (checkTimeFormat(data.time) === false) {
+            displayAlert(true, `Invalid time format, eg. 12:30pm`, 'danger')
+            return;
+        }
+
+        else if (isEditing) {
             // Edit Appointment
             setList(
               list.map((appointment) => {
@@ -77,7 +87,8 @@ export const Appointments = () => {
     }
 
     const setDataHandler = (e) => { 
-        setData(prevData => ({ ...prevData, [e.target.name]: e.target.value, id: new Date().getTime().toString()}))
+        setData(prevData => ({ ...prevData, [e.target.name]: e.target.value, 
+            id: new Date().getTime().toString()}))
     };
 
     const removeItem = (id) => {
@@ -112,6 +123,26 @@ export const Appointments = () => {
             case 'Orlando': return document.getElementById('location-menu').selectedIndex = 5;
         }
     };
+
+    const checkDateFormat = (input) => {
+        const re = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
+        if(input != '' && !input.match(re)) {
+            return false;
+        }
+        return true;
+    }
+
+    const checkTimeFormat = (input) => {
+        const re = /^\d{1,2}:\d{2}([ap]m)?$/;
+        if (!input.match(re)) {
+            return false;
+        }
+        if (input.slice(-2) !== 'pm' && input.slice(-2) !== 'am'){
+            return false;
+        }
+        return true;
+    };
+
     // Save list state to local storage
     useEffect(() => {
         localStorage.setItem('list', JSON.stringify(list));
@@ -122,36 +153,44 @@ export const Appointments = () => {
             <h1 id='title'>Appointments</h1>
             <form className='appointment-form' onSubmit={handleSubmit}>
                 <div >
+                    <a>Description</a>
                     <input
                         value={data.description}
                         name="description"
-                        placeholder='description'
+                        placeholder=''
                         label='description'
                         onChange={setDataHandler}
+                        id='description-input'
                     />
+                    <a>Date</a>
                     <input
                         value={data.date}
                         name='date'
-                        placeholder='date'
+                        placeholder='dd/mm/yyyy'
                         label='date'
                         onChange={setDataHandler}
+                        id='date-input'
                     />
+                    <a>Time</a>
                     <input
                         value={data.time}                  
                         name='time'
-                        placeholder='time'
+                        placeholder='eg. 12:30pm'
                         label='time'
                         onChange={setDataHandler}
+                        id='time-input'
                     />
+                    <a>Location</a>
                     <select id="location-menu" onChange={setDataHandler} name="location" className="select">
-                        <option value="select" disabled selected>Select Location</option>
+                        <option value="select">Select</option>
                         <option value="San Diego">San Diego</option>
                         <option value="Portland">Portland</option>
                         <option value="Seattle">Seattle</option>
                         <option value="London">London</option>
                         <option value="Orlando">Orlando</option>
                      </select>
-                    <button type="submit" className={isEditing ? "update-btn" : "create-btn"} id="create-appointment-btn"> {isEditing ? 'Update' : 'Create'} </button>
+                    <button type="submit" className={isEditing ? "update-btn" : "create-btn"}
+                     id="create-appointment-btn"> {isEditing ? 'Update' : 'Create'} </button>
                 </div>
             </form>
         <div className='table-container'>            

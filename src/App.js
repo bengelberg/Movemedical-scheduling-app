@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import { Appointments } from './components/Appointments';
-import logo from './logo.png'
+import logo from './assets/logo.png'
 
 function App() {
   return (
