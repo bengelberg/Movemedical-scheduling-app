@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Movemedical-scheduling-app/static/css/main.5b9f1a35.css",
+    "main.js": "/Movemedical-scheduling-app/static/js/main.9c2bb808.js",
+    "static/media/logo.png": "/Movemedical-scheduling-app/static/media/logo.01736c1b1866a1e182e8.png",
+    "index.html": "/Movemedical-scheduling-app/index.html",
+    "main.5b9f1a35.css.map": "/Movemedical-scheduling-app/static/css/main.5b9f1a35.css.map",
+    "main.9c2bb808.js.map": "/Movemedical-scheduling-app/static/js/main.9c2bb808.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5b9f1a35.css",
+    "static/js/main.9c2bb808.js"
+  ]
+}
