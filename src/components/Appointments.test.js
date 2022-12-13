@@ -4,6 +4,35 @@ import { Appointments } from "./Appointments";
 import user from '@testing-library/user-event';
 import userEvent from "@testing-library/user-event";
 
+
+test('submits form when button is clicked', () => {
+    const onSubmit = jest.fn();
+    render(<Appointments onSubmit={onSubmit} />);
+
+    const description = screen.getByPlaceholderText(/description/i);;
+    const date = screen.getByPlaceholderText(/date/i);
+    const time = screen.getByPlaceholderText(/time/i);
+    const location = screen.getByRole('option', {
+        name: /seattle/i
+      });
+    const button = screen.getByRole('button', {
+        name: /create/i
+      });
+      
+    userEvent.type(description, 'test description');
+    userEvent.type(date, '01/01/2021');
+    userEvent.type(time, '12:00pm');
+    userEvent.click(button);
+
+    expect(onSubmit).toHaveBeenCalledTimes(1);
+    expect(onSubmit).toHaveBeenCalledWith({
+        description: 'test description',
+        date: '01/01/2023',
+        time: '12:00pm',
+        location: 'Seattle',
+    })
+});
+
 // describe('Appointment Form', () => {
 //     const onSubmit = jest.fn();
 
@@ -39,6 +68,7 @@ import userEvent from "@testing-library/user-event";
 //      })
 // });
 
+
 // const getDescription = () => {
 //     return screen.getByPlaceholderText(/description/i);
 // }
@@ -53,29 +83,3 @@ import userEvent from "@testing-library/user-event";
 //         name: /create/i
 //       });
 // }
-
-
-test('submits form when button is clicked', () => {
-    const onSubmit = jest.fn();
-    render(<Appointments onSubmit={onSubmit} />);
-
-    const description = screen.getByPlaceholderText(/description/i);;
-    const date = screen.getByPlaceholderText(/date/i);
-    const time = screen.getByPlaceholderText(/time/i);
-    const location = screen.getByRole('option', {
-        name: /seattle/i
-      });
-    const button = screen.getByRole('button', {
-        name: /create/i
-      });
-      
-    userEvent.type(description, 'test description');
-    userEvent.type(date, '01/01/2021');
-    userEvent.type(time, '12:00pm');
-    userEvent.click(button);
-
-    expect(onSubmit).toHaveBeenCalledTimes(1)
-})
-
-
-// 'An appointment should be properly added to the list state array'
