@@ -31,6 +31,7 @@ export const Appointments = () => {
         if (!data.description || !data.date || !data.time || 
             document.getElementById('location-menu').selectedIndex === 0){
             displayAlert(true, 'All fields must be entered', 'danger');
+            return;
         } 
         if (checkDateFormat(data.date) === false) {
             displayAlert(true, `Date must be formatted as MM/DD/YYYY`, 'danger')
