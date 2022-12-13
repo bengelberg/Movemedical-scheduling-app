@@ -1,11 +1,11 @@
-##### Movemedical Technical Assessment #####
+# Movemedical Technical Assessment #
 
-### Schedulize - An Appointment Scheduling App ###
+## Schedulize - An Appointment Scheduling App ###
 
 
-# Functionality
+## Functionality
 
-Within Schedulize you can create a new appointment with a description, date, time, and location (selected from the dropdown menu).All fields must be entered for the appointment to be submitted, or you will see an error alert message.
+Within Schedulize you can create a new appointment with a description, date, time, and location (selected from the dropdown menu). All fields must be entered for the appointment to be submitted, or you will see an error alert message. Additionally, date format (mm/dd/yyyy) and time format (eg. 12:30pm) are validated before an appointment can be submitted. 
 
 To update your created appointment, click the update icon button and make any necessary changes.
 
@@ -13,10 +13,13 @@ To delete your appointment, simply click the delete icon button.
 
 To clear all appointments, click the button at the bottom of the page saying "clear appointments".
 
+
+# Other features 
+
 Your appointments are stored in localmemory and will persist if the webpage is refreshed. 
 
 
-# Getting Started with Schedulize
+## Getting Started with Schedulize
 
 In the project directory, you can run:
 

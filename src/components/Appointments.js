@@ -193,11 +193,11 @@ export const Appointments = () => {
                      id="create-appointment-btn"> {isEditing ? 'Update' : 'Create'} </button>
                 </div>
             </form>
-        <div className='table-container'>            
-            <AppointmentList appointments={list} removeItem={removeItem} editItem={editItem}/>
-            {alert.display && <Alert {...alert} hideAlert={displayAlert}/>}
-            <button type="button" className='clear-appointments-btn' onClick={clearList}>Clear Appointments</button>
-        </div>
+            <div className='table-container'>            
+                <AppointmentList appointments={list} removeItem={removeItem} editItem={editItem}/>
+                {alert.display && <Alert {...alert} hideAlert={displayAlert}/>}
+                <button type="button" className='clear-appointments-btn' onClick={clearList}>Clear Appointments</button>
+            </div>
         </section>
     )
 };

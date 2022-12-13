@@ -10,16 +10,16 @@
 }
 
 #main-logo {
-  margin-left: 45px;
+  margin-left: 40px;
 }
 
 .header{
-  background: linear-gradient(to right, #181618, #090909);
+  background: linear-gradient(to right, #181618, #050505);
   display: grid;
-  grid-template-columns: 8em 1fr;
+  grid-template-columns: 135px 1fr;
   align-items: center;
-  padding: 30px;
+  padding: 20px;
   font-family: 'PT Sans', sans-serif;
   color: rgb(249, 249, 249);
-  font-size: 1.2em;
+  font-size: .9em;
 }
