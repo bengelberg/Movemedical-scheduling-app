@@ -12,6 +12,7 @@ const getLocalStorage = () => {
     }
 };
 
+// Main Appointment Container 
 export const Appointments = () => {
     const [list, setList] = useState(getLocalStorage());
     const [data, setData] = useState({
@@ -31,6 +32,7 @@ export const Appointments = () => {
             console.log(alert)
             displayAlert(true, 'All fields must be entered', 'danger');
         } else if (isEditing) {
+            // Edit Appointment
             setList(
               list.map((appointment) => {
                 if (appointment.id === editID) {
@@ -55,6 +57,7 @@ export const Appointments = () => {
             document.getElementById('location-menu').selectedIndex = 0;
             displayAlert(true, 'Appointment Updated!', 'success');
         } else {
+            // Create New Appointment
             setList(current => [...current, data]);
             document.getElementById('location-menu').selectedIndex = 0;
             setData({
@@ -67,8 +70,8 @@ export const Appointments = () => {
             displayAlert(true, 'Appointment Added!', 'success');
         }
     };
-    // console.log(list)
-    // console.log(data)
+  
+    // Helper Functions
     const displayAlert = (display=false, message='', type='') => {
         setAlert({display, message, type});
     }
@@ -78,17 +81,18 @@ export const Appointments = () => {
     };
 
     const removeItem = (id) => {
-        // showAlert(true, 'danger', 'item removed');
         setList(list.filter(appointment => {
             return appointment.id !== id
             }       
         ));
         displayAlert(true, 'Appointment Removed', 'danger');
       };
+
     const clearList = () => {
         setList([]);
         displayAlert(true, 'List Cleared', 'danger');
     }
+
     const editItem = (id) => {
         const specificAppointment = list.find((appointment) => appointment.id === id);
         setIsEditing(true);
@@ -108,14 +112,14 @@ export const Appointments = () => {
             case 'Orlando': return document.getElementById('location-menu').selectedIndex = 5;
         }
     };
-
+    // Save list state to local storage
     useEffect(() => {
         localStorage.setItem('list', JSON.stringify(list));
       }, [list]);
 
     return (
         <section className='appointments-container'>
-            <h1>Appointments</h1>
+            <h1 id='title'>Appointments</h1>
             <form className='appointment-form' onSubmit={handleSubmit}>
                 <div >
                     <input
@@ -139,7 +143,7 @@ export const Appointments = () => {
                         label='time'
                         onChange={setDataHandler}
                     />
-                    <select id="location-menu" onChange={setDataHandler} name="location">
+                    <select id="location-menu" onChange={setDataHandler} name="location" className="select">
                         <option value="select" disabled selected>Select Location</option>
                         <option value="San Diego">San Diego</option>
                         <option value="Portland">Portland</option>
@@ -147,16 +151,14 @@ export const Appointments = () => {
                         <option value="London">London</option>
                         <option value="Orlando">Orlando</option>
                      </select>
-                    <button type="submit" className={isEditing ? "update-btn" : "create-btn"} id="create-appointment-btn"> {isEditing ? 'UPDATE' : 'CREATE'} </button>
+                    <button type="submit" className={isEditing ? "update-btn" : "create-btn"} id="create-appointment-btn"> {isEditing ? 'Update' : 'Create'} </button>
                 </div>
             </form>
-        <div className='footer-container'>
-            
+        <div className='table-container'>            
             <AppointmentList appointments={list} removeItem={removeItem} editItem={editItem}/>
             {alert.display && <Alert {...alert} hideAlert={displayAlert}/>}
-            <button type="button" className='clear-btn' onClick={clearList}>Clear Appointments</button>
-            
+            <button type="button" className='clear-appointments-btn' onClick={clearList}>Clear Appointments</button>
         </div>
         </section>
-    );
-}
+    )
+};

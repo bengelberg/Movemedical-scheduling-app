@@ -1,89 +1,114 @@
 .appointments-container {
     background-color: rgb(255, 255, 255);
-    border-radius: 8px;
-    box-shadow: 0 0 4px 4px  #d5d5d5;
-    min-width: 1000px;
-    max-width: 1024px;
+    border-radius: 4px;
+    min-width: 940px;
     display: grid;
     place-items: center;   
-    width: 60%;
+    width: 1100px;
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 2em;
     font-family: 'Barlow', sans-serif;
     font-size: 1.2em;
-
-    
+    background: linear-gradient(to right, #312d32, #242226);
 }
+
+#title{
+    color: var(--clr-primary-5);
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
 .appointment-form input{
     font-family: 'Barlow', sans-serif;
     margin: 20px;
-    padding: .4em;
-    border: 2px solid var(--clr-primary-5);
+    padding: .7em;
+    background: rgb(59, 54, 60);
     border-radius: 4px;
+    border-style: none;
+    color: var(--clr-primary-5)
 }
+
 input:focus{
-    /* border-color: rgb(111, 255, 164); */
-    border: 2px solid rgb(126, 255, 126);
+    background: rgb(70, 65, 71);
+    border-style: none;
 }
+
 .appointment-form select{
     font-family: 'Barlow', sans-serif;
     margin: 20px;
-    padding: .45em;
+    padding: .65em 1em .65em 1.5em;
+    background: rgb(59, 54, 60);
+    border-radius: 4px;
+    color: var(--clr-primary-5);
+    border-style: none;
 }
-.clear-btn{
+.clear-appointments-btn{
     margin: 1.5em;
     border: none;
     font-family: 'Barlow', sans-serif;
     font-size: .7em;
     font-weight: 400;
     background: none;
-    color: rgb(201, 79, 79);
+    color: rgb(173, 96, 96);
     margin-bottom: 1em;
     cursor: pointer;
+    transition: var(--transition)
 }
-
+.clear-appointments-btn:hover{
+    color: rgb(255, 191, 170); 
+}
 
 .btn{
     font-family: 'Barlow', sans-serif;  
+    transition: var(--transition);
 }
 .create-btn{
     padding: .7em 2em .7em 2em;
-    background: rgb(134, 215, 114);
+    background: var(--clr-primary-7);
     margin-left: 2em;
     border-radius: 9px;
     border-style: none;
-    color: white;
+    color: var(--clr-primary-6);
     font-weight: 600;
-    box-shadow: 0 0 2px 2px  var(--clr-primary-6);
     cursor: pointer;
+    transition: var(--transition);
 }
+
+.create-btn:hover{
+    background: var(--clr-primary-8);
+    color: rgb(244, 243, 243);
+}
+
 .update-btn{
     padding: .7em 2em .7em 2em;
-    background: rgb(114, 158, 215);
+    background: rgb(225, 197, 120);
     margin-left: 2em;
     border-radius: 9px;
     border-style: none;
-    color: white;
+    color: rgb(247, 246, 246);
     font-weight: 600;
-    box-shadow: 0 0 2px 2px  var(--clr-primary-6);
     cursor: pointer;
+    transition: var(--transition);
 }
-/* #create-appointment-btn{
-    padding: .7em 2em .7em 2em;
-    background: rgb(134, 215, 114);
-    margin-left: 2em;
-    border-radius: 9px;
-    border-style: none;
-    color: white;
-    font-weight: 600;
-    box-shadow: 0 0 2px 2px  var(--clr-primary-6);
-    cursor: pointer;
-} */
 
-.footer-container{
-    min-width: 1000px;
+.update-btn:hover{
+    background: rgb(152, 134, 83);
+    color: rgb(254, 254, 254);  
+}
+
+.table-container{
+    min-width: 867px;
     max-width: 1024px;
     display: grid;
     place-items: center;   
-    width: 60%;
+
 }
+
+#create-appointment-btn{
+    margin-right: 22px;
+}
+
+/* select {
+    appearance: none;
+    outline: 0;
+} */

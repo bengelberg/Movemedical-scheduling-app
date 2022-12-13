@@ -1,6 +1,5 @@
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -10,14 +9,15 @@
   color: white;
 }
 
-.main {
-
-  /* display: flex; */
-
+#main-logo {
+  margin-left: 45px;
 }
+
 .header{
-  background: linear-gradient(#5f5a5a, #535356);;
-  /* width: 100; */
+  background: linear-gradient(to right, #121112, #000000);
+  display: grid;
+  grid-template-columns: 8em 1fr;
+  align-items: center;
   padding: 30px;
   font-family: 'PT Sans', sans-serif;
   color: rgb(249, 249, 249);

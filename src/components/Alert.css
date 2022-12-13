@@ -1,5 +1,6 @@
 .alert {
-    padding: .6em;
+    padding: .65em;
+    padding-bottom: .9em;
     height: 1rem;
     display: grid;
     align-items: center;
@@ -7,15 +8,15 @@
     width: 300px;
     font-size: 1rem;
     border-radius: 0.25rem;
-    letter-spacing: .1rem;
+    letter-spacing: .07rem;
     text-transform: capitalize;
   }
 
   .alert-danger {
-    color: #741d25;
-    background: #fff5f6;
+    color: #eec7cb;
+    background: #a1676e;
   }
   .alert-success {
-    color: #156d2a;
-    background: #eefbf1;
+    color: rgb(241, 251, 238);
+    background: var(--clr-primary-8);
   }

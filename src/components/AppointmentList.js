@@ -7,7 +7,7 @@ export const AppointmentList = ({appointments, removeItem, editItem}) => {
         <div className='appointment-container'>
             <table className="table">
                 <thead className='thead-dark'>
-                    <tr>
+                    <tr className='table-descriptions'>
                         <th style={{width: "40%"}}>Description</th>
                         <th>Date</th>
                         <th>Time</th>
@@ -16,12 +16,10 @@ export const AppointmentList = ({appointments, removeItem, editItem}) => {
                     </tr>
                 </thead>
                 <tbody>
-                    
                 {appointments.map((appointment) => {
-                    const { id, description, date, time, location } = appointment;
-                    
+                    const { id, description, date, time, location } = appointment;                    
                     return (
-                        <tr key={id} >
+                        <tr key={id} className="table-row" >
                             <td>{description}</td>
                             <td>{date}</td>
                             <td>{time}</td>
@@ -49,7 +47,7 @@ export const AppointmentList = ({appointments, removeItem, editItem}) => {
             </table>         
         </div>
     )
-}
+};
 
 
 

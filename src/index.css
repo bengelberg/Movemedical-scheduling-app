@@ -1,13 +1,23 @@
 :root{
   /* dark shades */
-  --clr-primary-1: rgb(29, 29, 29);
-  --clr-primary-2: rgb(78, 78, 78);
-  --clr-primary-3: rgb(179, 178, 178);
+  --clr-primary-1: rgb(17, 17, 17);
+  --clr-primary-2: rgb(26, 26, 26);
+  --clr-primary-3: rgb(52, 52, 52);
   /* light shades */
-  --clr-primary-4: rgb(252, 252, 252);
-  --clr-primary-5: rgb(236, 236, 236);
-  --clr-primary-6: rgb(232, 229, 229);
-
+  --clr-primary-4: rgb(85, 85, 85);
+  --clr-primary-5: rgb(226, 226, 226);
+  --clr-primary-6: rgb(240, 240, 240);
+  /* green shades */
+  --clr-primary-7: rgb(135, 172, 114);
+  --clr-primary-8: rgb(107, 133, 92);
+  --clr-primary-9: rgb(205, 255, 173);
+  /* orange shades */
+  --clr-primary-10: rgb(218, 190, 115);
+  --clr-primary-11: rgb(152, 134, 83);
+  --clr-primary-12: rgb(255, 235, 179);
+  /* other */
+  --transition: all 0.3s linear;
+  background: linear-gradient(to right, #242026, #0e0e0f);
 }
 
 body {
@@ -15,16 +25,15 @@ body {
   font-family: 'PT Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(246, 250, 251);
 }
 
 code {
   font-family: 'Barlow', sans-serif,
 }
 
-@media screen and (min-width: 1000px) {
+/* @media screen and (min-width: 1024px) {
   .section-center {
     width: 95vw;
   }
-}
+} */
 
