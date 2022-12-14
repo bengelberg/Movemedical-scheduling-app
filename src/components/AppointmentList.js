@@ -19,26 +19,26 @@ export const AppointmentList = ({appointments, removeItem, editItem}) => {
                 {appointments.map((appointment) => {
                     const { id, description, date, time, location } = appointment;                    
                     return (
-                        <tr key={id} className="table-row" >
+                        <tr key={id} className='table-row' data-testid='appointment-row' >
                             <td>{description}</td>
                             <td>{date}</td>
                             <td>{time}</td>
                             <td>{location}</td>
                             <td>
                             <button
-                                    type='button'
-                                    className='edit-btn'
-                                    onClick={() => editItem(id)}
-                                >
-                                    <FaEdit />
-                                </button>
-                                <button
-                                    type='button'
-                                    className='delete-btn'
-                                    onClick={() => removeItem(id)}
-                                >
-                                    <FaTrash />
-                                </button>
+                                type='button'
+                                className='edit-btn'
+                                onClick={() => editItem(id)}
+                            >
+                                <FaEdit />
+                            </button>
+                            <button
+                                type='button'
+                                className='delete-btn'
+                                onClick={() => removeItem(id)}
+                            >
+                                <FaTrash />
+                            </button>
                             </td>                                                 
                         </tr> 
                     )

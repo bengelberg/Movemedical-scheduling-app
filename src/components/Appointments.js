@@ -127,7 +127,7 @@ export const Appointments = () => {
 
     const checkDateFormat = (input) => {
         const re = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
-        if(input != '' && !input.match(re)) {
+        if(input !== '' && !input.match(re)) {
             return false;
         }
         return true;
@@ -182,7 +182,8 @@ export const Appointments = () => {
                         id='time-input'
                     />
                     <a>Location</a>
-                    <select id="location-menu" onChange={setDataHandler} name="location" className="select">
+                    <select id="location-menu" onChange={setDataHandler} name="location"
+                     className="select" data-testid='description-input'>
                         <option value="select">Select</option>
                         <option value="San Diego">San Diego</option>
                         <option value="Portland">Portland</option>
